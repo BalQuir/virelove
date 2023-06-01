@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DotGothic16">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: 'Courier New', monospace;
+      color: #00ff00;
+    }
+
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .video-background iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s, visibility 0s linear 0.5s;
+    }
+
+    .popup-overlay.show {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.5s;
+    }
+
+    .popup-content {
+      background-color: black;
+      color: #00ff00;
+      padding: 20px;
+      text-align: center;
+      max-width: 400px;
+    }
+
+    .popup-buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .popup-buttons a {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 0 10px;
+      background-color: #00ff00;
+      color: black;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="video-background">
+    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/wE-ZALg0nJA?autoplay=1&loop=0&controls=0&showinfo=0&modestbranding=1&autohide=1&mute=1" frameborder="0" allowfullscreen></iframe>
+  </div>
+
+  <div class="popup-overlay">
+    <div class="popup-content">
+      <h2>¿Quieres ver qué hubiera pasado si hubieras escogido el otro final?</h2>
+      <div class="popup-buttons">
+        <a href="otro_final.html">Sí</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var videoPlayer = document.querySelector('.video-background iframe');
+    var popupOverlay = document.querySelector('.popup-overlay');
+
+    videoPlayer.addEventListener('ended', function() {
+      setTimeout(function() {
+        popupOverlay.classList.add('show');
+      }, 1000); // Ajusta el valor para cambiar el tiempo de espera antes de mostrar la ventana emergente
+    });
+  </script>
+</body>
+</html>

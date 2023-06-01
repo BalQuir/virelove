@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DotGothic16">
+<style>
+  body {
+    background-color: white; /* Cambia el fondo a blanco */
+  }
+
+  .clock-text {
+    font-family: "DotGothic16", monospace;
+    font-size: 50px;
+    color: pink; /* Cambia el color de las letras a rosa */
+    text-align: center;
+    margin-top: 180px;
+  }
+
+  .neon-text {
+    position: relative;
+    display: inline-block;
+    color: hotpink; /* Cambia el color de las letras a rosa más intenso */
+    text-shadow: 0 0 10px hotpink, 0 0 20px hotpink, 0 0 30px hotpink, 0 0 40px hotpink, 0 0 70px hotpink, 0 0 80px hotpink, 0 0 100px hotpink, 0 0 150px hotpink;
+  }
+
+  .continue-button {
+    opacity: 0;
+    transform: translateY(20px);
+    text-align: center;
+    margin-top: 20px;
+    transition: opacity 0.5s, transform 0.5s;
+  }
+
+  .continue-button.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .continue-button a {
+    display: inline-block;
+    padding: 10px 20px;
+    font-family: "Courier New", monospace;
+    font-size: 20px;
+    color: pink; /* Cambia el color del texto del botón a rosa */
+    background-color: transparent;
+    border: 2px solid pink; /* Cambia el color del borde del botón a rosa */
+    text-decoration: none;
+  }
+
+  .continue-button a:hover {
+    background-color: pink; /* Cambia el color de fondo del botón al pasar el cursor a rosa */
+    color: white; /* Cambia el color del texto del botón al pasar el cursor a blanco */
+  }
+</style>
+</head>
+<body>
+<div class="clock-text">
+  <span id="text" class="neon-text"></span>
+</div>
+
+<div id="continueButton" class="continue-button">
+  <a href="file:///C:/Users/karin/OneDrive/Im%C3%A1genes/EJEPRUEBA/Trailer.html">Continuar</a>
+</div>
+
+<script>
+  const text = "¿Alguna vez haz tenido el presentimiento de que alguien no es lo que aparenta? Nano es la chica nueva de la universidad, tiene un don, sabe cuando algo malo va a pasar...";
+  const textElement = document.getElementById('text');
+  let index = 0;
+
+  function typeWriter() {
+    if (index < text.length) {
+      textElement.innerHTML += text.charAt(index);
+      index++;
+      setTimeout(typeWriter, 100); // Ajusta el valor para cambiar la velocidad de escritura
+    } else {
+      setTimeout(() => {
+        const continueButton = document.getElementById('continueButton');
+        continueButton.classList.add('show');
+      }, 2000); // Ajusta el valor para cambiar el tiempo de espera antes de mostrar el botón
+    }
+  }
+  typeWriter();
+</script>
+</body>
+</html>

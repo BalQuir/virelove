@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Diseño Virtual</title>
+  <style>
+    /* Estilos para la disposición de los elementos */
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .credit {
+      width: 200px;
+      height: 200px;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+      text-align: center;
+      line-height: 200px;
+      font-size: 24px;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .gallery img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Diseño Virtual</h1>
+
+  <!-- Créditos -->
+  <div class="container">
+    <div class="credit">Cámara</div>
+    <div class="credit">Grabación</div>
+    <div class="credit">Programación</div>
+  </div>
+
+  <!-- Galería de fotos -->
+  <h2>Galería de Fotos</h2>
+  <div class="gallery">
+    <img src="imagen1.jpg" alt="Imagen 1">
+    <img src="imagen2.jpg" alt="Imagen 2">
+    <img src="imagen3.jpg" alt="Imagen 3">
+    <!-- Agrega más imágenes según sea necesario -->
+  </div>
+</body>
+</html>
